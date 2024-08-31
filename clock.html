@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Navigation</title>
+    <title>AI Navigation with Clock</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
+            text-align: center;
         }
         .navbar {
             background-color: #333;
             overflow: hidden;
+            padding: 10px;
         }
         .navbar a {
             float: left;
@@ -36,6 +38,11 @@
         p {
             color: #666;
         }
+        .clock {
+            margin-top: 20px;
+            font-size: 24px;
+            color: #333;
+        }
     </style>
 </head>
 <body>
@@ -45,16 +52,32 @@
         <a href="ai-tools.html">AI Tools</a>
         <a href="ai-trends.html">AI Trends</a>
         <a href="ai-resources.html">AI Resources</a>
-        <a href="clock.html">Clock</a>
     </div>
 
     <div class="content">
         <h1>Welcome to AI Navigation</h1>
         <p>This page is your gateway to explore the world of Artificial Intelligence. Use the navigation links above to explore different AI topics, tools, trends, and resources.</p>
-        <h1>
-            <p>欢迎加入AI 探索之旅！</p>
-        </h1>
+        
+        <!-- 时钟 -->
+        <div class="clock" id="clock"></div>
     </div>
+
+    <script>
+        function updateClock() {
+            const clockElement = document.getElementById('clock');
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            clockElement.textContent = `${hours}:${minutes}:${seconds}`;
+        }
+
+        // 每秒更新时钟
+        setInterval(updateClock, 1000);
+
+        // 初始调用以显示当前时间
+        updateClock();
+    </script>
 
 </body>
 </html>
